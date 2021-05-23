@@ -1,0 +1,16 @@
+/root/MdServices/bin/Debug/net5.0/MdServices
+/root/MdServices/bin/Debug/net5.0/MdServices.deps.json
+/root/MdServices/bin/Debug/net5.0/MdServices.runtimeconfig.json
+/root/MdServices/bin/Debug/net5.0/MdServices.runtimeconfig.dev.json
+/root/MdServices/bin/Debug/net5.0/MdServices.dll
+/root/MdServices/bin/Debug/net5.0/ref/MdServices.dll
+/root/MdServices/bin/Debug/net5.0/MdServices.pdb
+/root/MdServices/obj/Debug/net5.0/MdServices.csprojAssemblyReference.cache
+/root/MdServices/obj/Debug/net5.0/MdServices.GeneratedMSBuildEditorConfig.editorconfig
+/root/MdServices/obj/Debug/net5.0/MdServices.AssemblyInfoInputs.cache
+/root/MdServices/obj/Debug/net5.0/MdServices.AssemblyInfo.cs
+/root/MdServices/obj/Debug/net5.0/MdServices.csproj.CoreCompileInputs.cache
+/root/MdServices/obj/Debug/net5.0/MdServices.dll
+/root/MdServices/obj/Debug/net5.0/ref/MdServices.dll
+/root/MdServices/obj/Debug/net5.0/MdServices.pdb
+/root/MdServices/obj/Debug/net5.0/MdServices.genruntimeconfig.cache
