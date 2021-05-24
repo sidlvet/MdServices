@@ -21,14 +21,25 @@ namespace MdServices.Base
         /// <param name="context">SSL context</param>
         /// <param name="address">IP address</param>
         /// <param name="port">Port number</param>
-        public SslClient(SslContext context, IPAddress address, int port) : this(context, new IPEndPoint(address, port)) {}
+        public SslClient(SslContext context, IPAddress address, int port) : this(context, new IPEndPoint(address, port)) 
+        {
+            Context<SslClient>.Logger.Trace("-> SslClient::SslClient");
+            Context<SslClient>.Logger.Trace("<- SslClient::SslClient");
+        }
+
         /// <summary>
         /// Initialize SSL client with a given server IP address and port number
         /// </summary>
         /// <param name="context">SSL context</param>
         /// <param name="address">IP address</param>
         /// <param name="port">Port number</param>
-        public SslClient(SslContext context, string address, int port) : this(context, new IPEndPoint(IPAddress.Parse(address), port)) { Address = address; }
+        public SslClient(SslContext context, string address, int port) : this(context, new IPEndPoint(IPAddress.Parse(address), port)) 
+        {
+            Context<SslClient>.Logger.Trace("-> SslClient::SslClient");
+            Address = address;
+            Context<SslClient>.Logger.Trace("<- SslClient::SslClient");
+        }
+
         /// <summary>
         /// Initialize SSL client with a given IP endpoint
         /// </summary>
@@ -36,10 +47,12 @@ namespace MdServices.Base
         /// <param name="endpoint">IP endpoint</param>
         public SslClient(SslContext context, IPEndPoint endpoint)
         {
+            Context<SslClient>.Logger.Trace("-> SslClient::SslClient");
             Id = Guid.NewGuid();
             Address = endpoint.Address.ToString();
             Context = context;
             Endpoint = endpoint;
+            Context<SslClient>.Logger.Trace("<- SslClient::SslClient");
         }
 
         /// <summary>
@@ -145,7 +158,10 @@ namespace MdServices.Base
         /// <returns>Socket object</returns>
         protected virtual Socket CreateSocket()
         {
-            return new Socket(Endpoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            Context<SslClient>.Logger.Trace("-> SslClient::CreateSocket");
+            var s = new Socket(Endpoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            Context<SslClient>.Logger.Trace("<- SslClient::CreateSocket");
+            return s;
         }
 
         /// <summary>

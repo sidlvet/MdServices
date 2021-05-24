@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using MdServices.Base;
@@ -10,22 +11,30 @@ namespace WssChatClient
         static void Main(string[] args)
         {
             // WebSocket server address
-            string address = "h2841676.stratoserver.net";
+            string host = "h2841676.stratoserver.net";
             if (args.Length > 0)
-                address = args[0];
+                host = args[0];
 
             // WebSocket server port
             int port = 8443;
             if (args.Length > 1)
                 port = int.Parse(args[1]);
 
-            Context<Program>.Logger.Info($"WebSocket server address: {address}");
+            Context<Program>.Logger.Info($"WebSocket server address: {host}");
             Context<Program>.Logger.Info($"WebSocket server port: {port}");
 
             Context<Program>.Logger.Info("");
 
             // Create and prepare a new SSL client context
             var context = new SslContext(SslProtocols.Tls12, new X509Certificate2("client.pfx", "qwerty"), (sender, certificate, chain, sslPolicyErrors) => true);
+
+            IPHostEntry hostEntry;
+            hostEntry = Dns.GetHostEntry(host);
+            var address = host;
+            if (hostEntry.AddressList.Length > 0)
+                address = hostEntry.AddressList[0].ToString();
+
+            Context<Program>.Logger.Info("Address: " + address);
 
             // Create a new TCP chat client
             var client = new DiagnosticsClient(context, address, port);

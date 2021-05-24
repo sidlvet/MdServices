@@ -11,7 +11,7 @@ namespace MdServices
 
         public override void OnWsConnected(HttpRequest request)
         {
-            Console.WriteLine($"Chat WebSocket session with Id {Id} connected!");
+            Console.WriteLine($"WebSocket session with Id {Id} connected!");
 
             // Send invite message
             string message = "Hello from WebSocket chat! Please send a message or '!' to disconnect the client!";
@@ -20,7 +20,7 @@ namespace MdServices
 
         public override void OnWsDisconnected()
         {
-            Console.WriteLine($"Chat WebSocket session with Id {Id} disconnected!");
+            Console.WriteLine($"WebSocket session with Id {Id} disconnected!");
         }
 
         public override void OnWsReceived(byte[] buffer, long offset, long size)
@@ -38,7 +38,7 @@ namespace MdServices
 
         protected override void OnError(SocketError error)
         {
-            Console.WriteLine($"Chat WebSocket session caught an error with code {error}");
+            Console.WriteLine($"WebSocket session caught an error with code {error}");
         }
     }
 }

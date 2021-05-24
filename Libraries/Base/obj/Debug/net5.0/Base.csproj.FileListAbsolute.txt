@@ -7,3 +7,4 @@ C:\projects\MdServices\Libraries\Base\obj\Debug\net5.0\Base.csproj.CoreCompileIn
 C:\projects\MdServices\Libraries\Base\obj\Debug\net5.0\Base.dll
 C:\projects\MdServices\Libraries\Base\obj\Debug\net5.0\ref\Base.dll
 C:\projects\MdServices\Libraries\Base\obj\Debug\net5.0\Base.pdb
+C:\projects\MdServices\Libraries\Base\obj\Debug\net5.0\Base.csprojAssemblyReference.cache

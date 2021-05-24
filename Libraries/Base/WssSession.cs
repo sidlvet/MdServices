@@ -11,7 +11,10 @@ namespace MdServices.Base
     {
         internal readonly WebSocket WebSocket;
 
-        public WssSession(WssServer server) : base(server) { WebSocket = new WebSocket(this); }
+        public WssSession(WssServer server) : base(server) 
+        { 
+            WebSocket = new WebSocket(this); 
+        }
 
         // WebSocket connection methods
         public virtual bool Close(int status) { SendCloseAsync(status, null, 0, 0); base.Disconnect(); return true; }
@@ -367,7 +370,6 @@ namespace MdServices.Base
         #endregion
 
         #region Web socket handlers
-
         public virtual void OnWsConnecting(HttpRequest request) {}
         public virtual void OnWsConnected(HttpResponse response) {}
         public virtual bool OnWsConnecting(HttpRequest request, HttpResponse response) { return true; }

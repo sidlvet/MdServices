@@ -36,9 +36,11 @@ namespace MdServices.Base
         /// <param name="endpoint">IP endpoint</param>
         public SslServer(SslContext context, IPEndPoint endpoint)
         {
+            Context<SslServer>.Logger.Trace("-> SslServer::SslServer");
             Id = Guid.NewGuid();
             Context = context;
             Endpoint = endpoint;
+            Context<SslServer>.Logger.Trace("<- SslServer::SslServer");
         }
 
         /// <summary>
@@ -378,8 +380,10 @@ namespace MdServices.Base
         /// <param name="session">Session to register</param>
         internal void RegisterSession(SslSession session)
         {
+            Context<SslServer>.Logger.Trace("-> SslServer::RegisterSession");
             // Register a new session
             Sessions.TryAdd(session.Id, session);
+            Context<SslServer>.Logger.Trace("<- SslServer::RegisterSession");
         }
 
         /// <summary>
@@ -388,8 +392,10 @@ namespace MdServices.Base
         /// <param name="id">Session Id</param>
         internal void UnregisterSession(Guid id)
         {
+            Context<SslServer>.Logger.Trace("-> SslServer::UnregisterSession");
             // Unregister session by Id
             Sessions.TryRemove(id, out SslSession temp);
+            Context<SslServer>.Logger.Trace("<- SslServer::UnregisterSession");
         }
 
         #endregion
