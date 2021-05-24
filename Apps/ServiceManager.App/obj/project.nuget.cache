@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "y/LgkYmdILyJRsoN51GWzZXlp/55+0cZTdK+jrNVeqGWoeCz35QP8xtMA3NgefLMESDp3J4HKHtNu4WSPnpOYA==",
+  "success": true,
+  "projectFilePath": "C:\\projects\\MdServices\\Apps\\ServiceManager.App\\ServiceManager.App.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\u2389\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.3\\microsoft.netcore.app.host.win-x64.5.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

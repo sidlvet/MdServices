@@ -1,0 +1,10 @@
+C:\projects\MdServices\Base\bin\Debug\net5.0\MdServices.Base.deps.json
+C:\projects\MdServices\Base\bin\Debug\net5.0\MdServices.Base.dll
+C:\projects\MdServices\Base\bin\Debug\net5.0\ref\MdServices.Base.dll
+C:\projects\MdServices\Base\bin\Debug\net5.0\MdServices.Base.pdb
+C:\projects\MdServices\Base\obj\Debug\net5.0\MdServices.Base.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\MdServices\Base\obj\Debug\net5.0\MdServices.Base.csproj.CoreCompileInputs.cache
+C:\projects\MdServices\Base\obj\Debug\net5.0\MdServices.Base.dll
+C:\projects\MdServices\Base\obj\Debug\net5.0\ref\MdServices.Base.dll
+C:\projects\MdServices\Base\obj\Debug\net5.0\MdServices.Base.pdb
+C:\projects\MdServices\Base\obj\Debug\net5.0\MdServices.Base.csprojAssemblyReference.cache

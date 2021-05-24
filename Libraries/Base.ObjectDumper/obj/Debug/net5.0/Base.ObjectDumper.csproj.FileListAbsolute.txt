@@ -1,0 +1,11 @@
+C:\projects\MdServices\Libraries\Base.ObjectDumper\bin\Debug\net5.0\Base.ObjectDumper.deps.json
+C:\projects\MdServices\Libraries\Base.ObjectDumper\bin\Debug\net5.0\Base.ObjectDumper.dll
+C:\projects\MdServices\Libraries\Base.ObjectDumper\bin\Debug\net5.0\ref\Base.ObjectDumper.dll
+C:\projects\MdServices\Libraries\Base.ObjectDumper\bin\Debug\net5.0\Base.ObjectDumper.pdb
+C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectDumper.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectDumper.AssemblyInfoInputs.cache
+C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectDumper.AssemblyInfo.cs
+C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectDumper.csproj.CoreCompileInputs.cache
+C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectDumper.dll
+C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\ref\Base.ObjectDumper.dll
+C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectDumper.pdb

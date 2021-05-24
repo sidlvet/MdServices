@@ -1,0 +1,16 @@
+C:\projects\MdServices\bin\Debug\net5.0\MdServices.exe
+C:\projects\MdServices\bin\Debug\net5.0\MdServices.deps.json
+C:\projects\MdServices\bin\Debug\net5.0\MdServices.runtimeconfig.json
+C:\projects\MdServices\bin\Debug\net5.0\MdServices.runtimeconfig.dev.json
+C:\projects\MdServices\bin\Debug\net5.0\MdServices.dll
+C:\projects\MdServices\bin\Debug\net5.0\ref\MdServices.dll
+C:\projects\MdServices\bin\Debug\net5.0\MdServices.pdb
+C:\projects\MdServices\obj\Debug\net5.0\MdServices.csprojAssemblyReference.cache
+C:\projects\MdServices\obj\Debug\net5.0\MdServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\MdServices\obj\Debug\net5.0\MdServices.AssemblyInfoInputs.cache
+C:\projects\MdServices\obj\Debug\net5.0\MdServices.AssemblyInfo.cs
+C:\projects\MdServices\obj\Debug\net5.0\MdServices.csproj.CoreCompileInputs.cache
+C:\projects\MdServices\obj\Debug\net5.0\MdServices.dll
+C:\projects\MdServices\obj\Debug\net5.0\ref\MdServices.dll
+C:\projects\MdServices\obj\Debug\net5.0\MdServices.pdb
+C:\projects\MdServices\obj\Debug\net5.0\MdServices.genruntimeconfig.cache
