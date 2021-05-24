@@ -9,3 +9,4 @@ C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectD
 C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectDumper.dll
 C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\ref\Base.ObjectDumper.dll
 C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectDumper.pdb
+C:\projects\MdServices\Libraries\Base.ObjectDumper\obj\Debug\net5.0\Base.ObjectDumper.csprojAssemblyReference.cache
