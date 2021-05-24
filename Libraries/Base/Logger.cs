@@ -5,23 +5,38 @@ namespace MdServices.Base
 {
     public class Logger<T>: ILogger
     {
-        public Logger() { }
+        private ILoggerFactory _factory;
+
+        public Logger(ILoggerFactory factory)
+        {
+            _factory = factory;
+        }      
 
         private static string TimeSpecification { get { return DateTime.Now.ToString("HH:mm:ss.fff"); } }
 
-        void ILogger.LogError(string v)
+        void ILogger.Error(string v)
         {
             Console.WriteLine( TimeSpecification + " [ERROR] " + v);
         }
 
-        void ILogger.LogInformation(string v)
+        void ILogger.Info(string v)
         {
             Console.WriteLine(TimeSpecification + " [INFO] " + v);
         }
 
-        void ILogger.LogWarning(string v)
+        void ILogger.Warning(string v)
         {
             Console.WriteLine(TimeSpecification + " [WARNING] " + v);
+        }
+
+        void ILogger.Debug(string v)
+        {
+            Console.WriteLine(TimeSpecification + " [DEBUG] " + v);
+        }
+
+        void ILogger.Trace(string v)
+        {
+            Console.WriteLine(TimeSpecification + " [TRACE] " + v);
         }
     }
 }

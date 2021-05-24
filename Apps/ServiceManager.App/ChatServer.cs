@@ -7,13 +7,17 @@ namespace MdServices
 {
     class ChatServer : WssServer
     {
-        public ChatServer(SslContext context, IPAddress address, int port) : base(context, address, port) { }
-
+        public ChatServer(SslContext context, IPAddress address, int port) : base(context, address, port)
+        {
+            Context<ChatServer>.Logger.Debug("-> ChatServer::ChatServer");
+            Context<ChatServer>.Logger.Debug("<- ChatServer::ChatServer");
+        }
+    
         protected override SslSession CreateSession() { return new ChatSession(this); }
 
         protected override void OnError(SocketError error)
         {
-            Console.WriteLine($"Chat WebSocket server caught an error with code {error}");
+            Context<ChatServer>.Logger.Error($"Chat WebSocket server caught an error with code {error}");
         }
     }
 }

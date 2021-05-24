@@ -2,7 +2,7 @@
 {
     public interface ILoggerFactory
     {
-        void AddConsole(object trace);
+        void SetLevel(ILogger.LogLevel trace);
         ILogger CreateLogger<T>();
     }
 }

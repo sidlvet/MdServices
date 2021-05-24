@@ -5,20 +5,13 @@ using System.Net;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using MdServices.Base;
-using MdServices.Base.Interfaces;
 
 namespace MdServices
 {
     class Program
     {
-        static ILogger _logger;
-        static ILoggerFactory _loggerFactory;
-
         static void Main(string[] args)
         {
-            _loggerFactory = new LoggerFactory();
-            _loggerFactory.AddConsole(ILogger.LogLevel.Trace);
-            _logger = _loggerFactory.CreateLogger<Program>();
 
             // WebSocket server port
             int port = 8443;
@@ -29,12 +22,12 @@ namespace MdServices
             if (args.Length > 1)
                 www = args[1];
 
-            _logger.LogInformation($"WebSocket server port: {port}");
-            _logger.LogInformation($"WebSocket server static content path: {www}");
-            _logger.LogInformation($"WebSocket server website: https://h2841676.stratoserver.net:{port}/chat/index.html");
+            Context<Program>.Logger.Info($"WebSocket server port: {port}");
+            Context<Program>.Logger.Info($"WebSocket server static content path: {www}");
+            Context<Program>.Logger.Info($"WebSocket server website: https://h2841676.stratoserver.net:{port}/chat/index.html");
 
             var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            _logger.LogInformation("Directory: " + dir);
+            Context<Program>.Logger.Info("Directory: " + dir);
 
             // Create and prepare a new SSL server context
             var context = new SslContext(SslProtocols.Tls12, new X509Certificate2(dir + "/server.pfx", "qwerty"));
@@ -44,11 +37,11 @@ namespace MdServices
             server.AddStaticContent(www, "/chat");
 
             // Start the server
-            _logger.LogInformation("Server starting...");
+            Context<Program>.Logger.Info("Server starting...");
             server.Start();
-            _logger.LogInformation("Done!");
+            Context<Program>.Logger.Info("Done!");
 
-            _logger.LogInformation("Press Enter to stop the server or '!' to restart the server...");
+            Context<Program>.Logger.Info("Press Enter to stop the server or '!' to restart the server...");
 
             // Perform text input
             for (; ; )
@@ -60,9 +53,9 @@ namespace MdServices
                 // Restart the server
                 if (line == "!")
                 {
-                    _logger.LogInformation("Server restarting...");
+                    Context<Program>.Logger.Info("Server restarting...");
                     server.Restart();
-                    _logger.LogInformation("Done!");
+                    Context<Program>.Logger.Info("Done!");
                 }
 
                 // Multicast admin message to all sessions
@@ -71,9 +64,9 @@ namespace MdServices
             }
 
             // Stop the server
-            _logger.LogInformation("Server stopping...");
+            Context<Program>.Logger.Info("Server stopping...");
             server.Stop();
-            _logger.LogInformation("Done!");
+            Context<Program>.Logger.Info("Done!");
         }
     }
 }

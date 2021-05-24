@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "VehRRuS2UnKTPF2WPDtBnOZ09dDOzflMZVszOs1joyEIM9ZHVDC5uI9+kz5LNnU6tUBexFKmTuiXvhKAvOpZpw==",
+  "success": true,
+  "projectFilePath": "C:\\projects\\MdServices\\Apps\\Diagnostics.App\\Diagnostics.App.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\u2389\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.3\\microsoft.netcore.app.host.win-x64.5.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
