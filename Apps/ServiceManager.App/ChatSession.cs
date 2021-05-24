@@ -33,7 +33,9 @@ namespace MdServices
 
             // If the buffer starts with '!' the disconnect the current session
             if (message == "!")
+            {
                 Close(1000);
+            }
         }
 
         protected override void OnError(SocketError error)

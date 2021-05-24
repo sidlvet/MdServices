@@ -12,12 +12,21 @@ namespace MdServices.Base
         internal readonly WebSocket WebSocket;
 
         public WssSession(WssServer server) : base(server) 
-        { 
-            WebSocket = new WebSocket(this); 
+        {
+            Context<WssSession>.Logger.Trace("-> WssSession::WssSession");
+            WebSocket = new WebSocket(this);
+            Context<WssSession>.Logger.Trace("<- WssSession::WssSession");
         }
 
         // WebSocket connection methods
-        public virtual bool Close(int status) { SendCloseAsync(status, null, 0, 0); base.Disconnect(); return true; }
+        public virtual bool Close(int status)
+        {
+            Context<WssSession>.Logger.Trace("-> WssSession::Close");
+            SendCloseAsync(status, null, 0, 0); 
+            base.Disconnect();
+            Context<WssSession>.Logger.Trace("<- WssSession::Close");
+            return true; 
+        }
 
         #region WebSocket send text methods
 
@@ -289,12 +298,17 @@ namespace MdServices.Base
 
         protected override void OnDisconnecting()
         {
+            Context<WssSession>.Logger.Trace("-> WssSession::OnDisconnecting");
             if (WebSocket.WsHandshaked)
+            {
                 OnWsDisconnecting();
+            }
+            Context<WssSession>.Logger.Trace("<- WssSession::OnDisconnecting");
         }
 
         protected override void OnDisconnected()
         {
+            Context<WssSession>.Logger.Trace("-> WssSession::OnDisconnecting");
             // Disconnect WebSocket
             if (WebSocket.WsHandshaked)
             {
@@ -311,10 +325,12 @@ namespace MdServices.Base
 
             // Initialize new WebSocket random nonce
             WebSocket.InitWsNonce();
+            Context<WssSession>.Logger.Trace("<- WssSession::OnDisconnecting");
         }
 
         protected override void OnReceived(byte[] buffer, long offset, long size)
         {
+            Context<WssSession>.Logger.Trace("-> WssSession::OnReceived");
             // Check for WebSocket handshaked status
             if (WebSocket.WsHandshaked)
             {
@@ -324,6 +340,7 @@ namespace MdServices.Base
             }
 
             base.OnReceived(buffer, offset, size);
+            Context<WssSession>.Logger.Trace("<- WssSession::OnReceived");
         }
 
         protected override void OnReceivedRequestHeader(HttpRequest request)

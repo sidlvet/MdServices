@@ -541,12 +541,16 @@ namespace MdServices.Base
         // Implement IDisposable.
         public void Dispose()
         {
+            Context<WssSession>.Logger.Trace("-> SslServer::Dispose");
             Dispose(true);
             GC.SuppressFinalize(this);
+            Context<WssSession>.Logger.Trace("<- SslServer::Dispose");
         }
 
         protected virtual void Dispose(bool disposingManagedResources)
         {
+            Context<WssSession>.Logger.Trace("-> SslServer::Dispose");
+
             // The idea here is that Dispose(Boolean) knows whether it is
             // being called to do explicit cleanup (the Boolean is true)
             // versus being called due to a garbage collection (the Boolean
@@ -574,13 +578,17 @@ namespace MdServices.Base
                 // Mark as disposed.
                 IsDisposed = true;
             }
+
+            Context<WssSession>.Logger.Trace("<- SslServer::Dispose");
         }
 
         // Use C# destructor syntax for finalization code.
         ~SslServer()
         {
+            Context<WssSession>.Logger.Trace("-> SslServer::~SslServer");
             // Simply call Dispose(false).
             Dispose(false);
+            Context<WssSession>.Logger.Trace("<- SslServer::~SslServer");
         }
 
         #endregion

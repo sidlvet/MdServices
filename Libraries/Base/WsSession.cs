@@ -11,49 +11,71 @@ namespace MdServices.Base
     {
         internal readonly WebSocket WebSocket;
 
-        public WsSession(WsServer server) : base(server) { WebSocket = new WebSocket(this); }
+        public WsSession(WsServer server) : base(server) 
+        {
+            Context<WsSession>.Logger.Trace("-> WsSession::WsSession");
+            WebSocket = new WebSocket(this);
+            Context<WsSession>.Logger.Trace("<- WsSession::WsSession");
+        }
 
         // WebSocket connection methods
-        public virtual bool Close(int status) { SendCloseAsync(status, null, 0, 0); base.Disconnect(); return true; }
+        public virtual bool Close(int status) 
+        {
+            Context<WsSession>.Logger.Trace("-> WsSession::Close");
+            SendCloseAsync(status, null, 0, 0); base.Disconnect(); return true;
+            Context<WsSession>.Logger.Trace("<- WsSession::Close");
+        }
 
         #region WebSocket send text methods
 
         public long SendText(byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendText");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_TEXT, false, buffer, offset, size);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendText");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendText");
         }
 
         public long SendText(string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendText");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_TEXT, false, data, 0, data.Length);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendText");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendText");
         }
 
         public bool SendTextAsync(byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendTextAsync");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_TEXT, false, buffer, offset, size);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendTextAsnyc");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendTextAsync");
         }
 
         public bool SendTextAsync(string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendTextAsync");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_TEXT, false, data, 0, data.Length);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendTextAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendTextAsync");
         }
 
         #endregion
@@ -62,40 +84,52 @@ namespace MdServices.Base
 
         public long SendBinary(byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendBinary");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_BINARY, false, buffer, offset, size);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendBinary");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendBinary");
         }
 
         public long SendBinary(string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendBinary");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_BINARY, false, data, 0, data.Length);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendBinary");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendBinary");
         }
 
         public bool SendBinaryAsync(byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendBinaryAsync");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_BINARY, false, buffer, offset, size);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendBinaryAsnyc");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendBinaryAsnyc");
         }
 
         public bool SendBinaryAsync(string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendBinaryAsync");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_BINARY, false, data, 0, data.Length);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendBinaryAsnyc");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendBinaryAsnyc");
         }
 
         #endregion
@@ -104,40 +138,52 @@ namespace MdServices.Base
 
         public long SendClose(int status, byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendClose");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_CLOSE, false, buffer, offset, size, status);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendClose");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendClose");
         }
 
         public long SendClose(int status, string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendClose");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_CLOSE, false, data, 0, data.Length, status);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendClose");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendClose");
         }
 
         public bool SendCloseAsync(int status, byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendCloseAsync");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_CLOSE, false, buffer, offset, size, status);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendCloseAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendCloseAsync");
         }
 
         public bool SendCloseAsync(int status, string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendCloseAsync");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_CLOSE, false, data, 0, data.Length, status);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendCloseAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendCloseAsync");
         }
 
         #endregion
@@ -146,40 +192,52 @@ namespace MdServices.Base
 
         public long SendPing(byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendPing");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PING, false, buffer, offset, size);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendPing");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendPing");
         }
 
         public long SendPing(string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendPing");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PING, false, data, 0, data.Length);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendPing");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendPing");
         }
 
         public bool SendPingAsync(byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendPingAsync");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PING, false, buffer, offset, size);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendPingAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendPingAsync");
         }
 
         public bool SendPingAsync(string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendPingAsync");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PING, true, data, 0, data.Length);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendPingAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendPingAsync");
         }
 
         #endregion
@@ -188,40 +246,52 @@ namespace MdServices.Base
 
         public long SendPong(byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendPong");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PONG, false, buffer, offset, size);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendPong");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendPong");
         }
 
         public long SendPong(string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendPong");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PONG, false, data, 0, data.Length);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendPong");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendPong");
         }
 
         public bool SendPongAsync(byte[] buffer, long offset, long size)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendPongAsync");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PONG, false, buffer, offset, size);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendPongAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendPongAsync");
         }
 
         public bool SendPongAsync(string text)
         {
+            Context<WsSession>.Logger.Trace("-> WsSession::SendPongAsync");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PONG, false, data, 0, data.Length);
+                Context<WsSession>.Logger.Trace("<- WsSession::SendPongAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
+            Context<WsSession>.Logger.Trace("<- WsSession::SendPongAsync");
         }
 
         #endregion
