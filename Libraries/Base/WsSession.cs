@@ -22,8 +22,10 @@ namespace MdServices.Base
         public virtual bool Close(int status) 
         {
             Context<WsSession>.Logger.Trace("-> WsSession::Close");
-            SendCloseAsync(status, null, 0, 0); base.Disconnect(); return true;
+            SendCloseAsync(status, null, 0, 0); 
+            base.Disconnect(); 
             Context<WsSession>.Logger.Trace("<- WsSession::Close");
+            return true;
         }
 
         #region WebSocket send text methods
@@ -37,7 +39,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendText");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendText");
         }
 
         public long SendText(string text)
@@ -50,7 +51,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendText");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendText");
         }
 
         public bool SendTextAsync(byte[] buffer, long offset, long size)
@@ -62,7 +62,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendTextAsnyc");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendTextAsync");
         }
 
         public bool SendTextAsync(string text)
@@ -75,7 +74,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendTextAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendTextAsync");
         }
 
         #endregion
@@ -91,7 +89,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendBinary");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendBinary");
         }
 
         public long SendBinary(string text)
@@ -104,7 +101,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendBinary");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendBinary");
         }
 
         public bool SendBinaryAsync(byte[] buffer, long offset, long size)
@@ -116,7 +112,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendBinaryAsnyc");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendBinaryAsnyc");
         }
 
         public bool SendBinaryAsync(string text)
@@ -129,7 +124,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendBinaryAsnyc");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendBinaryAsnyc");
         }
 
         #endregion
@@ -145,7 +139,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendClose");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendClose");
         }
 
         public long SendClose(int status, string text)
@@ -158,7 +151,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendClose");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendClose");
         }
 
         public bool SendCloseAsync(int status, byte[] buffer, long offset, long size)
@@ -170,7 +162,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendCloseAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendCloseAsync");
         }
 
         public bool SendCloseAsync(int status, string text)
@@ -183,7 +174,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendCloseAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendCloseAsync");
         }
 
         #endregion
@@ -199,7 +189,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendPing");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendPing");
         }
 
         public long SendPing(string text)
@@ -212,7 +201,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendPing");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendPing");
         }
 
         public bool SendPingAsync(byte[] buffer, long offset, long size)
@@ -224,7 +212,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendPingAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendPingAsync");
         }
 
         public bool SendPingAsync(string text)
@@ -237,7 +224,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendPingAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendPingAsync");
         }
 
         #endregion
@@ -253,7 +239,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendPong");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendPong");
         }
 
         public long SendPong(string text)
@@ -266,7 +251,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendPong");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendPong");
         }
 
         public bool SendPongAsync(byte[] buffer, long offset, long size)
@@ -278,7 +262,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendPongAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendPongAsync");
         }
 
         public bool SendPongAsync(string text)
@@ -291,7 +274,6 @@ namespace MdServices.Base
                 Context<WsSession>.Logger.Trace("<- WsSession::SendPongAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
-            Context<WsSession>.Logger.Trace("<- WsSession::SendPongAsync");
         }
 
         #endregion

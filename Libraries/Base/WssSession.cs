@@ -158,38 +158,46 @@ namespace MdServices.Base
 
         public long SendPing(byte[] buffer, long offset, long size)
         {
+            Context<WssSession>.Logger.Trace("-> WsSession::SendPing");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PING, false, buffer, offset, size);
+                Context<WssSession>.Logger.Trace("<- WsSession::SendPing");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
         }
 
         public long SendPing(string text)
         {
+            Context<WssSession>.Logger.Trace("-> WsSession::SendPing");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PING, false, data, 0, data.Length);
+                Context<WssSession>.Logger.Trace("<- WsSession::SendPing");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
         }
 
         public bool SendPingAsync(byte[] buffer, long offset, long size)
         {
+            Context<WssSession>.Logger.Trace("-> WsSession::SendPingAsync");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PING, false, buffer, offset, size);
+                Context<WssSession>.Logger.Trace("<- WsSession::SendPingAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
         }
 
         public bool SendPingAsync(string text)
         {
+            Context<WssSession>.Logger.Trace("-> WsSession::SendPingAsync");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PING, false, data, 0, data.Length);
+                Context<WssSession>.Logger.Trace("<- WsSession::SendPingAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
         }
@@ -200,38 +208,46 @@ namespace MdServices.Base
 
         public long SendPong(byte[] buffer, long offset, long size)
         {
+            Context<WssSession>.Logger.Trace("-> WsSession::SendPong");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PONG, false, buffer, offset, size);
+                Context<WssSession>.Logger.Trace("<- WsSession::SendPong");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
         }
 
         public long SendPong(string text)
         {
+            Context<WssSession>.Logger.Trace("-> WsSession::SendPong");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PONG, false, data, 0, data.Length);
+                Context<WssSession>.Logger.Trace("<- WsSession::SendPong");
                 return base.Send(WebSocket.WsSendBuffer.ToArray());
             }
         }
 
         public bool SendPongAsync(byte[] buffer, long offset, long size)
         {
+            Context<WssSession>.Logger.Trace("-> WsSession::SendPongAsync");
             lock (WebSocket.WsSendLock)
             {
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PONG, false, buffer, offset, size);
+                Context<WssSession>.Logger.Trace("<- WsSession::SendPongAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
         }
 
         public bool SendPongAsync(string text)
         {
+            Context<WssSession>.Logger.Trace("-> WsSession::SendPongAsync");
             lock (WebSocket.WsSendLock)
             {
                 var data = Encoding.UTF8.GetBytes(text);
                 WebSocket.PrepareSendFrame(WebSocket.WS_FIN | WebSocket.WS_PONG, false, data, 0, data.Length);
+                Context<WssSession>.Logger.Trace("<- WsSession::SendPongAsync");
                 return base.SendAsync(WebSocket.WsSendBuffer.ToArray());
             }
         }
